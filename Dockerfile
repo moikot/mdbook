@@ -1,8 +1,6 @@
 FROM ekidd/rust-musl-builder AS builder
 
-ARG VERSION
-
-RUN cargo install mdbook --vers ${VERSION} --no-default-features
+RUN cargo install mdbook --vers 0.2.1 --no-default-features
 
 FROM alpine:latest
 
