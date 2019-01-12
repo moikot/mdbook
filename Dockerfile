@@ -8,4 +8,10 @@ COPY --from=builder \
     /home/rust/.cargo/bin/mdbook \
     /usr/local/bin/
 
-CMD /usr/local/bin/mdbook
+ENV BOOKDIR /mdbook
+
+VOLUME $BOOKDIR
+WORKDIR $BOOKDIR
+
+ENTRYPOINT ["/usr/local/bin/mdbook"]
+CMD ["--help"]
